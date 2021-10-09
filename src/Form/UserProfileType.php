@@ -18,8 +18,8 @@ class UserProfileType extends AbstractType
             ->add('name')
             ->add('password')
             ->add('profilePic')
-            ->add('access')
-            ->add('reputation')
+            // ->add('access')
+            // ->add('reputation')
         ;
     }
 

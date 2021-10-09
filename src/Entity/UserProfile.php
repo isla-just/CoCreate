@@ -6,15 +6,13 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-/**
+ /**
  * @ORM\Entity(repositoryClass="App\Repository\UserProfileRepository")
  */
 
 class UserProfile implements UserInterface{
 
     //variables
-
-        //variables correlate to database columns
 
     /**
      * @ORM\Id()
@@ -46,24 +44,50 @@ private $id;
     private $profilePic;
 
      /**
-     * @ORM\Column(type="integer", length=2)
+     * @ORM\Column(
+     * type="integer", 
+     * length=5, 
+     * name="access",
+     * options={"default": 0})
      */
-    private $access;
+    private $access = 0;
+
+    // private $access;
 
      /**
-     * @ORM\Column(type="integer", length=5)
+     * @ORM\Column(
+     * type="integer", 
+     * length=5, 
+     * name="reputation",
+     * options={"default": 0})
      */
-    private $reputation;
+private $reputation = 0;
+
+    // private $reputation;
 
 //functions getting the data from DebugBundle
 public function getId() {return $this->id;}
 public function setId($id) {$this->id =$id;}
 
 public function getName() {return $this->name;}
-public function setName($name) {$this->name =$name;}
+
+
+public function setName(string $name): self
+{
+    $this->name = $name;
+
+    return $this;
+}
+
 
 public function getEmail() {return $this->email;}
-public function setEmail($email) {$this->email =$email;}
+
+public function setEmail(string $email): self
+{
+    $this->email = $email;
+
+    return $this;
+}
 
 
 public function getPassword(): ?string

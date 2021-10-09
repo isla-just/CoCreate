@@ -3,15 +3,16 @@
 //src/Controller/HomeController.php
 namespace App\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route; 
 
-use App\Entity\User;
+use App\Entity\UserProfile;
 
 class ProfileController extends AbstractController{
 //curly braces are wildcard 
     /**
-     * *@Route("/profile/{id}", name="view_frofile")
+     * *@Route("/profile/{id}", name="view_profile")
      */
     public function viewProfile($id = null){//defualt id value
 
@@ -27,28 +28,11 @@ class ProfileController extends AbstractController{
             ->getRepository(UserProfile::class)
             -> find ($user_id);
 
-        //create a modal 
-        $model=array();
+            //create a model
+            $model = array('user' => $user);
 
-        //identify a twig template
-        $view='profile.html.twig';
-
-        // foreach($users as $user){
-        //     if($user_id == $user->getId()){
-        //         $model['user']=$user;
-        //     }
-        // }
-
-   return $this->render($view, $model);
-    }
-
-       /**
-     * *@Route("/test", name="test")
-     */
-    public function test(){
-        return new Response(
-            '<html><body><h1>Tester</h1></body></html>'
-        );
+            //return with twig template, specifying the view and data sent to the view
+            return $this->render('profile.html.twig', $model);
     }
 }
 ?>
