@@ -1,0 +1,142 @@
+.html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, .row, div, a, .container-fluid, .row, .container{
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+button{
+    border:none;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.half1{
+    height: 100vh;
+    background-image: url(../assets/74584224ba7659d9a0b4ecd3cbdd788a.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.half2{
+    height: 100vh;
+    background-color: white;
+}
+
+.half2 h1{
+    color:#0B0864;
+    margin-top: 250px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.card h1{
+    color:#0B0864;
+    margin-top: 25px;
+    font-weight: 700;
+}
+
+.fas{
+    position: absolute;
+}
+
+input{
+    margin-top:25px;
+    margin-bottom:15px;
+    padding: 0px 10px 5px;
+    font-size: 16px;
+    border:none;
+    border-bottom: 1px solid #F8D2E6;
+    outline:none;
+    background-color:transparent;
+    color:#0B0864;
+    transition: .3s all;
+}
+
+input::placeholder{
+    color:#0B086470;
+}
+input:focus{
+    border-bottom: 1px solid #0B0864;
+}
+
+.reset-password{
+    color:#0b0864bb;
+    text-align: right;
+    font-size: 15px;
+    cursor:pointer;
+}
+
+.reset-password:hover{
+    color:#0B0864;
+   text-decoration: underline;
+}
+
+.login-btn{
+margin:auto;
+    background-color: #4E8EEF;
+    color:white;
+    font-weight: 600;
+    text-align: center;
+    padding: 10px;
+    border-radius: 50px;
+    box-shadow: 0px 3px 10px 0px rgba(11,8,100,0.2);
+-webkit-box-shadow: 0px 3px 10px 0px rgba(11,8,100,0.2);
+-moz-box-shadow: 0px 3px 10px 0px rgba(11,8,100,0.2);
+}
+
+.card{
+    margin-left: 8.33%;
+    padding: 5%;
+    border-radius: 50px;
+    box-shadow: 0px 3px 10px 0px rgba(11,8,100,0.2);
+-webkit-box-shadow: 0px 3px 10px 0px rgba(11,8,100,0.2);
+-moz-box-shadow: 0px 3px 10px 0px rgba(11,8,100,0.2);
+background-color: white;
+}
+
+.login-btn:hover{
+    background-color: #3b82ec;
+
+}
+
+.signup{
+    color:#0b0864dc;
+    text-align: center;
+    margin-top: 25px;
+    cursor: pointer;
+}
+
+.brand{
+    height:auto;
+    padding:7px;
+    margin-left: 5%;
+    margin-top: 40px;
+
+}
+
+@media only screen and (max-width: 375px) {
+    .card{
+        margin-top:10vh;
+    }
+
+    .signup{
+        margin-top: 10px;
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .card{
+        margin-top:12vh;
+    }
+
+    .signup{
+        margin-top: 10px;
+    }
+}

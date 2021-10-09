@@ -1,0 +1,122 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+  <link href="{{ asset('css/home.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block title %}
+CoCreate
+{% endblock %}
+
+{% block body %}
+            <nav class="navbar navbar-inverse navbar-fixed-top navbar-expand-lg"><!--fix colour at a later stage-->
+                
+                <a class="navbar-brand brand" href="#"><img class="img-responsive" src="{{ asset('assets/logo2.png') }}" style="width:40%;"></a><!--insert logo-->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBarContent" aria-controls="navBarContent" aria-expanded="false" aria-label="Toggle Nav!">
+                    <span class="navbar-toggler-icon"></span>
+                </button><!--setup for mobile-->
+
+            
+                <div class="collapse navbar-collapse" id="navBarContent" style="margin-top:30px">
+                        <!--nav content-->
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" style="margin-left:-50px" href="/">Explore</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" style="margin-left:20px" href="/profile">My Profile</a>
+                        </li>
+                    </ul><!--navbar-nav-->
+
+                    <div class="profile"></div>
+                    
+                </div><!--end of navcontent-->   
+            </nav><!--end of nav-->
+
+
+            <div class="row" style="margin-top:150px;">
+                <h1 class="main-header">Explore illustration creations...</h1>
+            </div>
+            
+            <div class="row" style="margin-top:40px">
+                <div class="toggle col-11 col-lg-6">
+                    <div class="active-toggle col-4">Illustration</div>
+                      <div class="inactive-toggle col-4">UX design</div>
+                        <div class="inactive-toggle col-4">Graphic design</div>
+                </div><!--toggle-->
+            </div>
+
+            <div class="row" style="padding:40px">
+                <div class="item-card col-11 col-md-6 col-lg-3">
+                    <div class="inner"></div>
+                    <div class="row" style="margin-top:330px">
+                        <div class="mini-pic"></div>
+                         <p class="details"><strong>Heather Young</strong><br>What do you guys think of these colours?</p>
+                    </div>
+                </div>
+                  <div class="item-card col-11 col-md-6 col-lg-3">
+                   <div class="inner"></div>
+                      <div class="row" style="margin-top:330px">
+                        <div class="mini-pic"></div>
+                         <p class="details"><strong>Heather Young</strong><br>What do you guys think of these colours?</p>
+                    </div>
+                   </div>
+                    <div class="item-card col-11 col-md-6 col-lg-3">
+                     <div class="inner"></div>
+                        <div class="row" style="margin-top:330px">
+                        <div class="mini-pic"></div>
+                         <p class="details"><strong>Heather Young</strong><br>What do you guys think of these colours?</p>
+                    </div>
+                    </div>
+                      <div class="item-card col-11 col-md-6 col-lg-3">
+                       <div class="inner"></div>
+                          <div class="row" style="margin-top:330px">
+                        <div class="mini-pic"></div>
+                         <p class="details"><strong>Heather Young</strong><br>What do you guys think of these colours?</p>
+                    </div>
+                      </div>
+
+
+            </div>
+
+                        <div class="row" style="padding:40px; margin-top:-70px">
+                <div class="item-card col-11 col-md-6 col-lg-3">
+                    <div class="inner"></div>
+                    <div class="row" style="margin-top:330px">
+                        <div class="mini-pic"></div>
+                         <p class="details"><strong>Heather Young</strong><br>What do you guys think of these colours?</p>
+                    </div>
+                </div>
+                  <div class="item-card col-11 col-md-6 col-lg-3">
+                   <div class="inner"></div>
+                      <div class="row" style="margin-top:330px">
+                        <div class="mini-pic"></div>
+                         <p class="details"><strong>Heather Young</strong><br>What do you guys think of these colours?</p>
+                    </div>
+                   </div>
+                    <div class="item-card col-11 col-md-6 col-lg-3">
+                     <div class="inner"></div>
+                        <div class="row" style="margin-top:330px">
+                        <div class="mini-pic"></div>
+                         <p class="details"><strong>Heather Young</strong><br>What do you guys think of these colours?</p>
+                    </div>
+                    </div>
+                      <div class="item-card col-11 col-md-6 col-lg-3">
+                       <div class="inner"></div>
+                          <div class="row" style="margin-top:330px">
+                        <div class="mini-pic"></div>
+                         <p class="details"><strong>Heather Young</strong><br>What do you guys think of these colours?</p>
+                    </div>
+                      </div>
+            </div>
+            <div class="row">
+                  <div class="login-btn">Load more</div>
+            </div>
+
+            <div class="row" style="margin-top:70px">
+                <div class="footer col-12"></div>
+            </div>
+
+            
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+  <link href="{{ asset('css/profile.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block title %}
+CoCreate
+{% endblock %}
+
+{% block body %}
+
+   <nav class="navbar navbar-inverse navbar-fixed-top navbar-expand-lg"><!--fix colour at a later stage-->
+                
+                <a class="navbar-brand brand" href="#"><img class="img-responsive" src="{{ asset('assets/logo2.png') }}" style="width:40%;"></a><!--insert logo-->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBarContent" aria-controls="navBarContent" aria-expanded="false" aria-label="Toggle Nav!">
+                    <span class="navbar-toggler-icon"></span>
+                </button><!--setup for mobile-->
+
+            
+                <div class="collapse navbar-collapse" id="navBarContent" style="margin-top:30px">
+                        <!--nav content-->
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" style="margin-left:-50px" href="/">Explore</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" style="margin-left:20px" href="/profile">My Profile</a>
+                        </li>
+                    </ul><!--navbar-nav-->
+
+                    <div class="profile"></div>
+                    
+                </div><!--end of navcontent-->   
+            </nav><!--end of nav-->
+
+            <div class="row">
+                <div class="profile-pic col-1"></div>
+                <div class="add"></div>
+
+    <div class="profile-container col-10">
+                <h1 class="name row">{{user.name}}</h1>
+                 <h4 class="email row">{{user.email}}</h4>
+            </div>
+             </div>
+
+    <div class="row" style="margin-top:60px;">
+
+                <i class="fas fa-user"></i>
+                <input class="col-5" type="text" name="name" id="name" placeholder="Fullname"/>
+
+                <i class="fas fa-unlock-alt"></i>
+                <input class="col-5" type="email" name="email" id="email" placeholder="Email" style="margin-left:50px"/>
+    </div>
+
+    <div class="row">
+      <div class="login-btn">Update details</div>
+    </div>
+
+    <div class="row">
+      <h1 class="past">Past posts</h1>
+    </div>
+
+<div class="row">
+<p class="posts-list">This is the profile of {{user.name}} and they have {{user.friends|length}} posts</p>
+</div>
+
+<div class="row">
+<ul style="margin-left:8.3333%; width:80%">
+{% for friend in user.friends %}
+<li class="single-post"> {{friend.name}} </li>
+{% endfor %}
+</ul>
+</div>
+            <div class="row" style="margin-top:140px">
+                <div class="footer col-12"></div>
+            </div>
+
+{% endblock %}
+

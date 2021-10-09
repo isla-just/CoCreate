@@ -1,0 +1,132 @@
+
+{# //form widget form.name #}
+{# {{ form_widget(SignUpform.name, {'attr': {'class':'form-control', 'placeholder':'Name', 'style':'height: 50px;width: 84%;border: none;'}}) }} #}
+
+
+
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+  <link href="{{ asset('css/login.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block title %}
+CoCreate
+{% endblock %}
+
+{% block body %}
+    <div class="large-container row d-none d-lg-block">
+        <div class="row">
+
+            <div class="half1 col-lg-6">
+                <div class="brand col-1"><img class="img-responsive" src="{{ asset('assets/Group 5.png') }}" style="width:100%"></div>
+            </div><!--half1-->
+
+            <div class="half2 col-12 col-lg-6">
+
+        <form method="post">
+
+                {% if error %}
+                    <div class="alert alert-danger row">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+
+
+                {% if app.user %}
+                    <div class="mb-3 row">
+                        You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                    </div>
+                {% endif %}
+
+                <h1 class="row" style="margin-left:12%">LOG IN</h1>
+                <div class="user row">
+                <i class="fas fa-user"></i>
+                <input class="col-9" value="{{ last_username }}" style="margin-left:12%" type="email" name="email"  id="inputEmail" placeholder="Email" class="form-control" autocomplete="email" required autofocus/>
+
+                <i class="fas fa-unlock-alt"></i>
+                <input class="col-9" style="margin-left:12%" type="password" name="password" id="inputPassword" placeholder="Password" class="form-control" autocomplete="current-password" required/>
+                </div><!--user-->
+
+               <div class="row">
+                <p class="reset-password col-9" style="margin-left:12%">Forgot password?</p>
+                </div>
+
+                    <input type="hidden" name="_csrf_token"
+                    value="{{ csrf_token('authenticate') }}"
+                    >
+
+                    <div class="checkbox mb-3 col-9" style="margin-left:11%">
+                    <label>
+                        <input type="checkbox" name="_remember_me"> Remember me
+                    </label>
+                    </div>
+
+                <div class="row" style="margin-top:40px">
+                 <button class="login-btn col-2" type="submit">Log in</button>
+                </div>
+
+                <p class="signup">First time here? <strong><a href="/register">Sign up now! </a></strong></p>
+        </form>
+            </div><!--half2-->
+        </div><!--row-->
+    </div><!--large container-->
+
+    <div class="small-container row d-lg-none">
+
+  <div class="row col-12">
+
+        <div class="half1 col-12">
+        <div class="brand col-2"><img class="img-responsive" src="{{ asset('assets/Group 5.png') }}" style="width:100%"></div>
+
+            <div class="card col-10">
+
+             <form method="post">
+
+                {% if error %}
+                <div class="alert alert-danger row">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+
+
+                {% if app.user %}
+                    <div class="mb-3 row">
+                        You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                    </div>
+                {% endif %}
+
+                <h1 class="col-12" style="text-align:center;">LOG IN</h1>
+
+                <div class="user col-12">
+                <i class="fas fa-user"></i>
+                  <input class="col-12" value="{{ last_username }}" type="email" name="email" id="inputEmail" placeholder="Email" class="form-control" autocomplete="email" required autofocus/>
+
+                <i class="fas fa-unlock-alt"></i>
+                <input class="col-12" type="password" name="password" id="inputPassword" placeholder="Password" class="form-control" autocomplete="current-password" required/>
+                </div><!--user-->
+
+                <div class="row">
+                <p class="reset-password col-12">Forgot password?</p>
+                </div>
+
+                    <input type="hidden" name="_csrf_token"
+                    value="{{ csrf_token('authenticate') }}"
+                    >
+
+                    <div class="checkbox mb-3 col-12"style="margin-left:0%;">
+                    <label>
+                        <input type="checkbox"  name="_remember_me"> Remember me
+                    </label>
+                    </div>
+                <div class="row" style="margin-top:40px">
+                    <button class="login-btn col-12 col-md-5" type="submit">Log in</button>
+                </div>
+
+                <div class="row">
+                <p class="signup col-12" style="margin-bottom:20px">First time here? <strong>Sign up now! </strong></p>
+                </div>
+            </div><!--card-->
+        </div>
+
+    </div><!--row-->
+
+    </div>
+
+{% endblock %}
