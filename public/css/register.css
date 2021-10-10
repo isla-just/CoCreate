@@ -8,6 +8,10 @@ a{
     text-decoration: none;
 }
 
+button{
+    border:none;
+}
+
 a:hover{
     text-decoration: none;
 }
@@ -54,7 +58,54 @@ a:hover{
     box-shadow: 0px 3px 10px 0px rgba(11,8,100,0.2);
     -webkit-box-shadow: 0px 3px 10px 0px rgba(11,8,100,0.2);
     -moz-box-shadow: 0px 3px 10px 0px rgba(11,8,100,0.2);
+    content: '+';
+    color:#fff;
+    border:none;
+   font-size: 27px;
+   font-weight: 600;
 }
+
+#user_profile_profilePic::-webkit-file-upload-button{
+    background-color:transparent;
+    color:transparent;
+    border:none;
+ }
+ 
+#user_profile_profilePic::before{
+    content: '+';
+    width: 2.5vw;
+    height: 2.5vw;
+     /* border-radius: 50%; */
+     background-color: transparent;
+ /* color:#fff; */
+     /* border:none; */
+    font-size: 25px;
+    font-weight: 600;
+    /* cursor: pointer; */
+ }
+ 
+#user_profile_profilePic{
+     height:2.5vw !important;
+     width: 2.5vw !important;
+     /* padding-left:12px !important; */
+     /* padding-top:2px !important; */
+     /* position: relative;
+     z-index: 1; */
+     background-color: #6C79DB;
+     border-radius: 8px;
+     color:transparent;
+     /* border: none;
+     margin-left: -20px;
+     margin-top: 43px !important; */
+     box-shadow: 0px 1px 13px 0px rgba(0,0,0,0.1);
+     -webkit-box-shadow: 0px 1px 13px 0px rgba(0,0,0,0.1);
+     -moz-box-shadow: 0px 1px 13px 0px rgba(0,0,0,0.1);
+ }
+
+#user_profile_profilePic:hover{
+    background-color: #FF6174;
+ }
+ 
 
 .fas{
     position: absolute;
@@ -83,6 +134,7 @@ input:focus{
 
 
 .login-btn{
+    border:none;
     margin: auto;
     background-color: #4E8EEF;
     color:white;

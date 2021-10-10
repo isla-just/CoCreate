@@ -47,15 +47,20 @@ class UserProfileController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             //get what the user entered and check if entried are the same - validation. render and redirect to error message
 
+            // $this->redirectToRoute('register', ['error'=>true})
             $plainpwd=$userProfile->getPassword();
             $encoded = $this->passwordEncoder->encodePassword($userProfile, $plainpwd);
             // $encoded = $passwordEncoder->encodePassword($userProfile, $plainpwd);
             $userProfile->setPassword($encoded);
 
+            // //setting the profile picture localization
+            // $file = $form->getData()['file'];
+            // $file->move('/your/path/to/your/file', 'yourFileName');
+
             $entityManager->persist($userProfile);
             $entityManager->flush();
 
-            return $this->redirectToRoute('user_profile_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_login', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('user_profile/new.html.twig', [

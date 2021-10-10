@@ -16,15 +16,17 @@ CoCreate
                  <div class="brand col-1"><img class="img-responsive" src="{{ asset('assets/logo2.png') }}" style="width:100%; float:right"></div>
                           <h1>SIGN UP</h1>
 
+
+            {{ form_start(form) }}
                 <div class="row" style="margin-left:5%">
                     <div class="container col-3" style="margin:auto">
                         <div class="profile-pic"></div>
-                        <div class="add"></div>
+                         
+                        <div class="add">
+                            {{ form_widget(form.profilePic, {'attr':{'class':'custom-file-input','style':'margin-left:12%'}}) }}
+                        </div>
                     </div>
                 </div>
-
-    {{ form_start(form) }}
-
 
                 <div class="user row">
                 <i class="fas fa-user"></i>
@@ -49,7 +51,7 @@ CoCreate
                 </div>
         {{ form_end(form) }}
 
-                <p class="signup">Already have an account? <strong>Sign in now! </strong></p>
+                <p class="signup">Already have an account?<strong><a href="/login/"> Sign in now! </a></strong></p>
               
             </div><!--half1-->
 

@@ -1,26 +1,23 @@
 <?php
 
-//src/Controller/LoginController.php
+//src/Controller/HomeController.php
 namespace App\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route; 
 
-// use App\Entity\User;
+class AskController extends AbstractController{
 
-class RegisterController extends AbstractController{
-//curly braces are wildcard 
     /**
-     * *@Route("/register", name="register")
+     * *@Route("/ask", name="ask")
      */
-
-    public function viewRegister(){
+    public function viewAsk(){
 
         //create a modal 
         $model=array();
 
         //identify a twig template
-        $view='register.html.twig';
+        $view='ask.html.twig';
 
    return $this->render($view, $model);
     }

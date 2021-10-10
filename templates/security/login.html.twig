@@ -15,6 +15,9 @@ CoCreate
 {% endblock %}
 
 {% block body %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <div class="large-container row d-none d-lg-block">
         <div class="row">
 
@@ -25,11 +28,6 @@ CoCreate
             <div class="half2 col-12 col-lg-6">
 
         <form method="post">
-
-                {% if error %}
-                    <div class="alert alert-danger row">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                {% endif %}
-
 
                 {% if app.user %}
                     <div class="mb-3 row">
@@ -64,11 +62,35 @@ CoCreate
                  <button class="login-btn col-2" type="submit">Log in</button>
                 </div>
 
-                <p class="signup">First time here? <strong><a href="/register">Sign up now! </a></strong></p>
+                <p class="signup">First time here? <strong><a href="/users/new/">Sign up now! </a></strong></p>
         </form>
             </div><!--half2-->
         </div><!--row-->
     </div><!--large container-->
+
+     {% if error %}
+     <div class="large-container-overlay">
+        <div class="error-card col-2">
+        <div class="close"></div>
+            <h1>Oops!</h1>
+            <h4>Your username or password is incorrect</h4>
+        </div>
+     </div>
+
+    {% endif %}
+                    {# <div class="alert alert-danger row">{{ error.messageKey|trans(error.messageData, 'security') }}</div> #}
+    <script>
+
+      $(document).ready(function() {
+    
+    console.log("ready");
+
+        $(".close").on("click", function(){
+            $(".large-container-overlay").fadeOut();
+        });
+     });
+
+    </script>
 
     <div class="small-container row d-lg-none">
 
