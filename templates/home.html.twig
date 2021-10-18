@@ -9,6 +9,13 @@ CoCreate
 {% endblock %}
 
 {% block body %}
+
+<div class="fab-container">
+  <div class="fab fab-icon-holder">
+    <a href="/ask"><i class="fas fa-question"></i></a>
+  </div>
+</div>
+
             <nav class="navbar navbar-inverse navbar-fixed-top navbar-expand-lg"><!--fix colour at a later stage-->
                 
                 <a class="navbar-brand brand" href="#"><img class="img-responsive" src="{{ asset('assets/logo2.png') }}" style="width:40%;"></a><!--insert logo-->
@@ -34,12 +41,6 @@ CoCreate
                 </div><!--end of navcontent-->   
             </nav><!--end of nav-->
 
-<div class="fab-container">
-  <div class="fab fab-icon-holder">
-    <a href="/ask"><i class="fas fa-question"></i></a>
-  </div>
-</div>
-
             <div class="row" style="margin-top:150px;">
                 <h1 class="main-header">Explore illustration creations...</h1>
             </div>
@@ -52,12 +53,15 @@ CoCreate
                 </div><!--toggle-->
             </div>
 
-            <div class="row" style="padding:40px">
+            <div class="row"style="padding:40px">
+            
+            {% for question in questions %} {#for loop looks in twig #}
+
                 <div class="item-card col-11 col-md-6 col-lg-3">
-                    <div class="inner col-12" style="background-image: url(../assets/19d6cea19a5d06a7ebb2e853d62f1952.png);"></div>
+                    <div class="inner col-12" style="background-image: url(../questions/{{question.imageUrl}});"></div>
                     <div class="row" style="margin-top:330px">
                         <div class="mini-pic"></div>
-                         <p class="details"><strong>Heather Young</strong><br>What do you guys think of these colours?</p>
+                         <p class="details"><strong>{{question.userId.name}}</strong><br>{{question.community}}</p>
                     </div>
                 </div>
                   <div class="item-card col-11 col-md-6 col-lg-3">
@@ -81,40 +85,10 @@ CoCreate
                          <p class="details"><strong>Heather Young</strong><br>What do you guys think of these colours?</p>
                     </div>
                       </div>
-
-
             </div>
+                   {% endfor %}
 
-                        <div class="row" style="padding:40px; margin-top:-70px">
-                <div class="item-card col-11 col-md-6 col-lg-3">
-                    <div class="inner" style="background-image: url(../assets/8770fe108984027eb55c1e8e00bb3e2b.png);"></div>
-                    <div class="row" style="margin-top:330px">
-                        <div class="mini-pic"></div>
-                         <p class="details"><strong>Heather Young</strong><br>What do you guys think of these colours?</p>
-                    </div>
-                </div>
-                  <div class="item-card col-11 col-md-6 col-lg-3">
-                   <div class="inner" style="background-image: url(../assets/c35962ce29d98acb5fd39491e379fad7.png);"></div>
-                      <div class="row" style="margin-top:330px">
-                        <div class="mini-pic"></div>
-                         <p class="details"><strong>Heather Young</strong><br>What do you guys think of these colours?</p>
-                    </div>
-                   </div>
-                    <div class="item-card col-11 col-md-6 col-lg-3">
-                     <div class="inner" style="background-image: url(../assets/ee989fa1594237764574cbf6b1961c10.png);"></div>
-                        <div class="row" style="margin-top:330px">
-                        <div class="mini-pic"></div>
-                         <p class="details"><strong>Heather Young</strong><br>What do you guys think of these colours?</p>
-                    </div>
-                    </div>
-                      <div class="item-card col-11 col-md-6 col-lg-3">
-                       <div class="inner" style="background-image: url(../assets/f636287300683cbde610be2a935ca084.png);"></div>
-                          <div class="row" style="margin-top:330px">
-                        <div class="mini-pic"></div>
-                         <p class="details"><strong>Heather Young</strong><br>What do you guys think of these colours?</p>
-                    </div>
-                      </div>
-            </div>
+
             <div class="row">
                   <div class="login-btn">Load more</div>
             </div>

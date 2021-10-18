@@ -22,6 +22,7 @@ class SecurityController extends AbstractController
         $error = $authenticationUtils->getLastAuthenticationError();
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
+        // echo $lastUsername;
 
         return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
     }
@@ -31,7 +32,6 @@ class SecurityController extends AbstractController
      */
     public function logout(): void
     {
-            // controller can be blank: it will never be executed!
-            throw new \Exception('Don\'t forget to activate logout in security.yaml');
+        throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
 }

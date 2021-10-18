@@ -38,7 +38,7 @@ CoCreate
                 <h1 class="row" style="margin-left:12%">LOG IN</h1>
                 <div class="user row">
                 <i class="fas fa-user"></i>
-                <input class="col-9" value="{{ last_username }}" style="margin-left:12%" type="email" name="email"  id="inputEmail" placeholder="Email" class="form-control" autocomplete="email" required autofocus/>
+                <input class="col-9" style="margin-left:12%" type="email" name="email"  id="inputEmail" placeholder="Email" class="form-control" autocomplete="email" required autofocus/>
 
                 <i class="fas fa-unlock-alt"></i>
                 <input class="col-9" style="margin-left:12%" type="password" name="password" id="inputPassword" placeholder="Password" class="form-control" autocomplete="current-password" required/>
@@ -51,12 +51,6 @@ CoCreate
                     <input type="hidden" name="_csrf_token"
                     value="{{ csrf_token('authenticate') }}"
                     >
-
-                    <div class="checkbox mb-3 col-9" style="margin-left:11%">
-                    <label>
-                        <input type="checkbox" name="_remember_me"> Remember me
-                    </label>
-                    </div>
 
                 <div class="row" style="margin-top:40px">
                  <button class="login-btn col-2" type="submit">Log in</button>
@@ -118,7 +112,7 @@ CoCreate
 
                 <div class="user col-12">
                 <i class="fas fa-user"></i>
-                  <input class="col-12" value="{{ last_username }}" type="email" name="email" id="inputEmail" placeholder="Email" class="form-control" autocomplete="email" required autofocus/>
+                  <input class="col-12" type="email" name="email" id="inputEmail" placeholder="Email" class="form-control" autocomplete="email" required autofocus/>
 
                 <i class="fas fa-unlock-alt"></i>
                 <input class="col-12" type="password" name="password" id="inputPassword" placeholder="Password" class="form-control" autocomplete="current-password" required/>

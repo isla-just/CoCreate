@@ -115,8 +115,8 @@ a:hover{
 }
 
 .mini-pic{
-    width:40px;
-    height: 40px;
+    width:2.5vw;
+    height: 2.5vw;
     border-radius: 50px;
     background-color: #A2CCF9;
     display:block;
@@ -138,7 +138,8 @@ a:hover{
 .details{
     color: #0B0864;
     font-weight: 400;
-    margin-left:20px;
+    margin-left:30px;
+    width:80%;
 }
 
 .login-btn{
@@ -191,6 +192,7 @@ a:hover{
   
   .fab-icon-holder:hover {
    background-color: #0B0864;
+   transform: rotate(180deg);
   }
   
   .fab-icon-holder i {
@@ -198,15 +200,19 @@ a:hover{
     align-items: center;
     justify-content: center;
     height: 100%;
-    font-size: 25px;
-    color: #ffffff;
+    background-image: url(../assets/add.png);
+    background-position: center;
+    background-size: cover;
   }
   
   .fab {
     width: 60px;
     height: 60px;
     background: #4E8EEF;
-    content: '+'; 
   }
+
+  .fab:hover {
+    transform: rotate(180deg);
+   }
 
 

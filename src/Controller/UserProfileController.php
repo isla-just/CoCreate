@@ -43,32 +43,63 @@ class UserProfileController extends AbstractController
         $form = $this->createForm(UserProfileType::class, $userProfile);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            //get what the user entered and check if entried are the same - validation. render and redirect to error message
 
-            // $this->redirectToRoute('register', ['error'=>true})
-            $plainpwd=$userProfile->getPassword();
-            $encoded = $this->passwordEncoder->encodePassword($userProfile, $plainpwd);
-            // $encoded = $passwordEncoder->encodePassword($userProfile, $plainpwd);
-            $userProfile->setPassword($encoded);
+       $error="";
 
-            // //setting the profile picture localization
-            // $file = $form->getData()['file'];
-            // $file->move('/your/path/to/your/file', 'yourFileName');
+        if($form->isSubmitted()){
+        // get the login error if there is one
+                    //get what the user entered and check if entried are the same - validation. render and redirect to error message
+                    $get_email = $this->getDoctrine()->getRepository(UserProfile::class)->findBy(array('email' => $userProfile->getEmail()));
 
-            $entityManager->persist($userProfile);
-            $entityManager->flush();
+                    $entityManager = $this->getDoctrine()->getManager();
+                    $entityManager->persist($userProfile);
 
-            return $this->redirectToRoute('app_login', [], Response::HTTP_SEE_OTHER);
+                    if (!$get_email) {
+                        // $entityManager->flush();
+                        $plainpwd=$userProfile->getPassword();
+                        $encoded = $this->passwordEncoder->encodePassword($userProfile, $plainpwd);
+                        // $encoded = $passwordEncoder->encodePassword($userProfile, $plainpwd);
+                        $userProfile->setPassword($encoded);
+
+                                                // //setting the profile picture localization
+                        $id=$userProfile->getId();
+                        $profileUrl=$form->get('profilePic')->getData();
+
+                        if($profileUrl){
+                            //creating a unique url
+                            $fileName=pathinfo($profileUrl->getClientOriginalName(), PATHINFO_FILENAME);
+                            $newFileName=time() . '_' . $id . '.' . $profileUrl->guessExtension();        
+                        
+                            try{
+                                $profileUrl->move('../public/profiles/',$newFileName
+                                );
+                            }catch(FileException $e){
+
+                            }//end of try catch
+                        }
+
+                        //upload to database
+                        $userProfile->setProfilePic($newFileName);
+                        // $entityManager->$this->getDoctrine()->getManager();
+
+                        $entityManager->flush();
+
+                        return $this->redirectToRoute('app_login', [], Response::HTTP_SEE_OTHER);
+
+
+                    }
+                    else {
+                       $error="This email is already taken";
+                    }
         }
 
         return $this->renderForm('user_profile/new.html.twig', [
             'user_profile' => $userProfile,
             'form' => $form,
+            'error' => $error
         ]);
     }
-
+    
     /**
      * @Route("/{id}", name="user_profile_show", methods={"GET"})
      */
@@ -79,7 +110,7 @@ class UserProfileController extends AbstractController
         ]);
     }
 
-    /**
+     /**
      * @Route("/{id}/edit", name="user_profile_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, UserProfile $userProfile): Response

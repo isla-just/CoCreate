@@ -6,6 +6,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route; 
 
+use App\Entity\Question;
+
 class HomeController extends AbstractController{
 
     /**
@@ -13,13 +15,19 @@ class HomeController extends AbstractController{
      */
     public function viewHome(){
 
-        //create a modal 
-        $model=array();
+            //using the Entity & Doctrine to get our Database data
+            $questions = $this->getDoctrine()
+             ->getRepository(Question::class)
+             ->findAll(); 
+             
+             //findAll() function to get all of our data - will implement sorting functionality later
+             //findBy(array(feeling => 'happy', id => '1')) - to compare more than one field
 
-        //identify a twig template
-        $view='home.html.twig';
+            //create a model
+            $model = array('questions' => $questions);
 
-   return $this->render($view, $model);
+            //return with twig template, specifying the view and data sent to the view
+            return $this->render('home.html.twig', $model);
     }
 
 }
