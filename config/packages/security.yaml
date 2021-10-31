@@ -23,7 +23,9 @@ security:
             provider: app_user_provider
             custom_authenticator: App\Security\AppCustomAuthenticator
             logout:
-                path: login
+                path: /logout
+                target: /login
+                invalidate_session: true
                 # where to redirect after logout
                 # target:  app_login
 

@@ -70,23 +70,22 @@ a:hover{
     margin:auto;
 }
 
-.active-toggle{
-    height: auto;
-    background-color: #0B0864;
-    color: white;
-    border-radius: 50px;
-    padding:12px;
-    text-align: center;
-    float:left;
-    font-weight: 500;
-}
-
 .inactive-toggle{
     height: auto;
     color: #0B0864;
     padding:12px;
     text-align: center;
     float:left;
+}
+
+.active-toggle{
+    background-color: #0B0864;
+    color: white !important;
+    border-radius: 50px;
+    padding:12px;
+    text-align: center;
+    float:left;
+    font-weight: 500;
 }
 
 .main-header{
@@ -100,6 +99,7 @@ a:hover{
 .item-card{
     height:auto;
     padding: 20px;
+    float:left;
 }
 
 .inner{
@@ -128,9 +128,9 @@ a:hover{
     height: 2.4vw;
     border-radius: 50px;
     background-color: #A2CCF9;
-    box-shadow: 0px 3px 10px 0px rgba(11,8,100,0.1);
+    /* box-shadow: 0px 3px 10px 0px rgba(11,8,100,0.1);
     -webkit-box-shadow: 0px 3px 10px 0px rgba(11,8,100,0.1);
-    -moz-box-shadow: 0px 3px 10px 0px rgba(11,8,100,0.1);
+    -moz-box-shadow: 0px 3px 10px 0px rgba(11,8,100,0.1); */
     float:left;
     margin-left:10px;
 }
@@ -138,8 +138,17 @@ a:hover{
 .details{
     color: #0B0864;
     font-weight: 400;
-    margin-left:30px;
-    width:80%;
+    margin-left:20px;
+    width:75%;
+    height:50px;
+    overflow:hidden;
+}
+
+.dot{
+    float: left;
+    color: #0b0864a1;
+    width:5%;
+    margin-top:20px
 }
 
 .login-btn{

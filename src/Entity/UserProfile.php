@@ -68,9 +68,16 @@ private $reputation = 0;
  */
 private $questions;
 
+/**
+ * @ORM\OneToMany(targetEntity=Answer::class, mappedBy="user", orphanRemoval=true)
+ */
+private $answers;
+
 public function __construct()
 {
     $this->questions = new ArrayCollection();
+    $this->responses = new ArrayCollection();
+    $this->answers = new ArrayCollection();
 }
 
     // private $reputation;
@@ -192,6 +199,36 @@ public function getUsername()
             // set the owning side to null (unless already changed)
             if ($question->getUserId() === $this) {
                 $question->setUserId(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Answer[]
+     */
+    public function getAnswers(): Collection
+    {
+        return $this->answers;
+    }
+
+    public function addAnswer(Answer $answer): self
+    {
+        if (!$this->answers->contains($answer)) {
+            $this->answers[] = $answer;
+            $answer->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAnswer(Answer $answer): self
+    {
+        if ($this->answers->removeElement($answer)) {
+            // set the owning side to null (unless already changed)
+            if ($answer->getUser() === $this) {
+                $answer->setUser(null);
             }
         }
 

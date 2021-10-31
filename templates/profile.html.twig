@@ -26,17 +26,16 @@ CoCreate
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" style="margin-left:20px" href="/profile">My Profile</a>
+                            <a class="nav-link" style="margin-left:20px" href="/profile/{{app.user.id}}">My Profile</a>
                         </li>
                     </ul><!--navbar-nav-->
 
-                    <div class="profile"></div>
-                    
+
                 </div><!--end of navcontent-->   
             </nav><!--end of nav-->
 
             <div class="row">
-                <div class="profile-pic col-1"></div>
+                <div class="profile-pic col-1"><img src="{{ asset('/profiles/' ~ app.user.profilePic) }}" style="width:123%; margin-left:-12%;  height:154px; border-radius: 100px;"/></div>
                 <div class="add"></div>
 
     <div class="profile-container col-10">
@@ -62,8 +61,33 @@ CoCreate
       <h1 class="past">Past posts</h1>
     </div>
 
-<div class="row">
-<p class="posts-list">This is the profile of {{user.name}}</p>
+
+<div class="container testimonial-group col-12" style="margin-top:30px; margin-bottom:30px">
+  <div class="row">
+  <a href="/ask" style="margin-left:150px"><div class="add-new"><img  src="{{ asset('assets/add.png') }}" style="width:70px;"/></div></a>
+
+              {% for question in app.user.questions %} {#for loop looks in twig #}
+
+               <div class="item-card col-11 col-md-6 col-lg-3" value="{{question.community}}"><a href="/question/{{question.id}}">
+                    <div class="inner col-12" style="background-image: url(../questions/{{question.imageUrl}});"></div><!--inner-->
+                    <div class="row" style="margin-top:330px">
+                        
+                         <p class="details"><strong>{{question.community}}</strong><br>{{question.questionText}}</p>
+                    </div><!--row--></a>
+                </div><!--itemcard-->
+              
+                   {% endfor %}
+                   
+    {# <div class="col-4">1</div><!--
+ --><div class="col-4">2</div><!--
+ --><div class="col-4">3</div><!--
+ --><div class="col-4">4</div><!--
+ --><div class="col-4">5</div><!--
+ --><div class="col-4">6</div><!--
+ --><div class="col-4">7</div><!--
+ --><div class="col-4">8</div><!--
+ --><div class="col-4">9</div> #}
+  </div>
 </div>
 
 <div class="row">
@@ -78,11 +102,12 @@ CoCreate
                   <div class="col-4"><img class="img-responsive" src="{{ asset('assets/Group 5.png') }}" style="width:13%; margin-top:40px; margin-left:80px"></div>
                   <div class="col-4" style="text-align:center; color:white; margin-top:60px">COPYRIGHT 2021 PROJECT</div>
                   <div class="col-4" style="margin-top:45px">
-                    <div class="circle" style="margin-left:50%"></div>
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    <div class="circle"></div>
+                    <a class="circle" style="margin-left:50%;" href="https://web.facebook.com/?_rdc=1&_rdr"><img  src="{{ asset('assets/facebook.png') }}" style=" width:100%"/></a>
+                    <a class="circle" href="https://www.instagram.com/"><img src="{{ asset('assets/insta.png') }}" style=" width:100%"/></a>
+                    <a class="circle" href="https://twitter.com/Twitter?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><img src="{{ asset('assets/twitter.png') }}" style=" width:100%"/></a>
+                    <a class="circle" style="background-color:transparent" href="https://za.pinterest.com/"><img src="{{ asset('assets/pinterest.png') }}" style=" width:100%"/></a>
                   </div>
+                </div>
                 </div>
             </div>
 

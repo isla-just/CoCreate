@@ -55,6 +55,7 @@ class AskController extends AbstractController{
 
             //upload to database
             $question->setImageUrl($newFileName);
+            // $question->setUserId(UserProfil)
 
             //upload to database
             // $question->setUserId(UserProfile::class,$id);
@@ -71,12 +72,6 @@ class AskController extends AbstractController{
 
 
         }
-
-        //identify a twig template
-        $view='ask.html.twig';
-
-                //create a modal 
-                $model=array('form'=>$form->createView());
 
         //    $model=array();  
 
