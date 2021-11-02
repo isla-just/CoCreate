@@ -34,23 +34,27 @@ class Answer
      */
     private $comment;
 
-    /**
-     * @ORM\Column(type="integer", nullable=true)
+     /**
+     * @ORM\Column(type="integer")
+     * name="upvotes",
+     * options={"default": 0})
      */
-    private $upvotes;
+    private $upvotes = 0;
 
-    /**
-     * @ORM\Column(type="integer", nullable=true)
+     /**
+     * @ORM\Column(type="integer")
+     * name="downvotes",
+     * options={"default": 0})
      */
-    private $downvotes;
+    private $downvotes = 0;
 
     /**
      * @ORM\Column(type="boolean")
      * name="pinned",
-     * options={"default": false})
+     * options={"default": 0})
      */
      
-    private $pinned=false;
+    private $pinned=0;
 
     public function getId(): ?int
     {

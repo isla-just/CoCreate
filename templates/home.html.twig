@@ -23,6 +23,16 @@ CoCreate
     console.log("ready");
 
     $(".item-card").hide();
+    $(".login-btn").hide();
+    
+    if($('.item-card[value="' + "Illustration" + '"]').length > 12){
+      $(".login-btn").show();
+    }
+    
+    if ($('.item-card[value="' + "UX design" + '"]').length > 12){
+      $(".login-btn").show();
+    }
+
      $('.item-card[value="' + "Illustration" + '"]').slice(0, 12).show();
 
         $(".inactive-toggle").on("click", function(){
@@ -34,13 +44,26 @@ CoCreate
                     $(".item-card").hide();
             $('.item-card[value="' + "Illustration" + '"]').slice(0, 12).show();
 
+
+            if($('.item-card[value="' + "Illustration" + '"]').length > 12){
+              $(".login-btn").show();
+            }
+
             }else if($(".active-toggle").text() == "UX design") {
                     $(".item-card").hide();
             $('.item-card[value="' + "UX design" + '"]').slice(0, 12).show();
 
+            if($('.item-card[value="' + "UX design" + '"]').length > 12){
+              $(".login-btn").show();
+            }
+
             }else{
                     $(".item-card").hide();
             $('.item-card[value="' + "Graphic design" + '"]').slice(0, 12).show();
+
+              if($('.item-card[value="' + "Graphic design" + '"]').length > 12){
+              $(".login-btn").show();
+            }
             }
 
         });//toggle click
@@ -49,14 +72,17 @@ CoCreate
                         if ($(".active-toggle").text() == "Illustration") {
                     $(".item-card").hide();
             $('.item-card[value="' + "Illustration" + '"]').slice(0, 24).show();
+            $(".login-btn").hide();
 
             }else if($(".active-toggle").text() == "UX design") {
                     $(".item-card").hide();
             $('.item-card[value="' + "UX design" + '"]').slice(0, 24).show();
+                 $(".login-btn").hide();
 
             }else{
                     $(".item-card").hide();
             $('.item-card[value="' + "Graphic design" + '"]').slice(0, 24).show();
+                 $(".login-btn").hide();
             }
         });//load more 
         
@@ -67,26 +93,26 @@ CoCreate
 
             <nav class="navbar navbar-inverse navbar-fixed-top navbar-expand-lg"><!--fix colour at a later stage-->
                 
-                <a class="navbar-brand brand" href="#"><img class="img-responsive" src="{{ asset('assets/logo2.png') }}" style="width:40%;"></a><!--insert logo-->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBarContent" aria-controls="navBarContent" aria-expanded="false" aria-label="Toggle Nav!">
-                    <span class="navbar-toggler-icon"></span>
-                </button><!--setup for mobile-->
+                <a class="navbar-brand brand" href="#"><img class="img-responsive1" src="{{ asset('assets/logo2.png') }}" style="width:40%;"></a><!--insert logo-->
 
-            
-                <div class="collapse navbar-collapse" id="navBarContent" style="margin-top:30px">
+                <div id="navBarContent" style="margin-top:30px">
                         <!--nav content-->
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav" >
                         <li class="nav-item">
-                            <a class="nav-link active" style="margin-left:-50px" href="/">Explore</a>
+                            <a class="nav-link active" href="/">Explore</a>
                         </li>
 
-                        <li class="nav-item">
+                        <li class="nav-item link2">
                             <a class="nav-link" style="margin-left:20px" href="/profile/{{app.user.id}}">My Profile</a>
                         </li>
                     </ul><!--navbar-nav-->
                     
                 </div><!--end of navcontent-->   
             </nav><!--end of nav-->
+    
+                    {% if app.user.access == 3 %}
+                      <p class="admin">Welcome admin!</p>
+                    {% endif %}
 
             <div class="row" style="margin-top:150px;">
                 <h1 class="main-header">Explore illustration creations...</h1>
@@ -104,12 +130,12 @@ CoCreate
             
             {% for question in questions %} {#for loop looks in twig #}
 
-               <div class="item-card col-11 col-md-6 col-lg-3" value="{{question.community}}"> <a href="/question/{{question.id}}">
+               <div class="item-card col-12 col-md-6 col-lg-3" value="{{question.community}}"> <a href="/question/{{question.id}}">
                     <div class="inner col-12" style="background-image: url(../questions/{{question.imageUrl}});"></div><!--inner-->
                     <div class="row" style="margin-top:330px">
                         
-                        <div class="mini-pic"> <img src="{{ asset('/profiles/' ~ question.userId.profilePic) }}" style="width:100%;  height: 2.5vw; border-radius: 100px;"/></div>
-                         <p class="details"><strong>{{question.userId.name}}</strong><br>{{question.questionText}}</p><p class="dot">...</p>
+                        <div class="mini-pic"> <img src="{{ asset('/profiles/' ~ question.userId.profilePic) }}"/></div>
+                         <p class="details"><strong>{{question.userId.name}}</strong><br>{{question.questionText}}</p>
                     </div><!--row--></a>
                 </div><!--itemcard-->
               
@@ -117,15 +143,15 @@ CoCreate
   </div>
 
             <div class="row">
-                  <div class="login-btn">Load more</div>
+                  <div class="login-btn col-10 col-sm-10 col-md-4 col-lg-1">Load more</div>
             </div>
 
             <div class="row" style="margin-top:70px">
               <div class="footer col-12 row">
-                  <div class="col-4"><img class="img-responsive" src="{{ asset('assets/Group 5.png') }}" style="width:13%; margin-top:40px; margin-left:80px"></div>
-                  <div class="col-4" style="text-align:center; color:white; margin-top:60px">COPYRIGHT 2021 PROJECT</div>
-                  <div class="col-4" style="margin-top:45px">
-                    <a class="circle" style="margin-left:50%;" href="https://web.facebook.com/?_rdc=1&_rdr"><img  src="{{ asset('assets/facebook.png') }}" style=" width:100%"/></a>
+                  <div class="col-6 col-lg-4 footerLogo"><img class="img-responsive" src="{{ asset('assets/Group 5.png') }}"></div>
+                  <div class="col-6 col-lg-4 d-none d-lg-block" style="text-align:center; color:white; margin-top:60px">COPYRIGHT 2021 PROJECT</div>
+                  <div class="col-6 col-lg-4" style="margin-top:45px;">
+                    <a class="circle facebookCircle" href="https://web.facebook.com/?_rdc=1&_rdr"><img  src="{{ asset('assets/facebook.png') }}" style=" width:100%"/></a>
                     <a class="circle" href="https://www.instagram.com/"><img src="{{ asset('assets/insta.png') }}" style=" width:100%"/></a>
                     <a class="circle" href="https://twitter.com/Twitter?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><img src="{{ asset('assets/twitter.png') }}" style=" width:100%"/></a>
                     <a class="circle" style="background-color:transparent" href="https://za.pinterest.com/"><img src="{{ asset('assets/pinterest.png') }}" style=" width:100%"/></a>

@@ -23,6 +23,12 @@ class AskController extends AbstractController{
 
     public function newQuestion(Request $request): Response
     {
+
+        $user = $this->getUser();
+        if($user == null){
+           return $this->redirectToRoute('app_login');
+        }
+        
          $question = new Question();
         // $send_id=$request->getSession()->get(Security::LAST_USERNAME);
         // $get_id=$question->getUserId(UserProfile::$send_id);

@@ -10,52 +10,61 @@ CoCreate
 
 {% block body %}
 
-   <nav class="navbar navbar-inverse navbar-fixed-top navbar-expand-lg"><!--fix colour at a later stage-->
+            <nav class="navbar navbar-inverse navbar-fixed-top navbar-expand-lg"><!--fix colour at a later stage-->
                 
-                <a class="navbar-brand brand" href="#"><img class="img-responsive" src="{{ asset('assets/logo2.png') }}" style="width:40%;"></a><!--insert logo-->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBarContent" aria-controls="navBarContent" aria-expanded="false" aria-label="Toggle Nav!">
-                    <span class="navbar-toggler-icon"></span>
-                </button><!--setup for mobile-->
+                <a class="navbar-brand brand" href="#"><img class="img-responsive1" src="{{ asset('assets/logo2.png') }}" style="width:40%;"></a><!--insert logo-->
 
-            
-                <div class="collapse navbar-collapse" id="navBarContent" style="margin-top:30px">
+                <div id="navBarContent" style="margin-top:30px">
                         <!--nav content-->
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav" >
                         <li class="nav-item">
-                            <a class="nav-link active" style="margin-left:-50px" href="/">Explore</a>
+                            <a class="nav-link active" href="/">Explore</a>
                         </li>
 
-                        <li class="nav-item">
+                        <li class="nav-item link2">
                             <a class="nav-link" style="margin-left:20px" href="/profile/{{app.user.id}}">My Profile</a>
                         </li>
                     </ul><!--navbar-nav-->
-
-
+                    
                 </div><!--end of navcontent-->   
             </nav><!--end of nav-->
+                  <div class="row" style="margin-top:-80px">
+                              <a class="logout-btn col-lg-1 col-md-2" href="/logout" ><div >Logout</div></a>
+                </div>
+             {{ form_start(form) }}
 
             <div class="row">
-                <div class="profile-pic col-1"><img src="{{ asset('/profiles/' ~ app.user.profilePic) }}" style="width:123%; margin-left:-12%;  height:154px; border-radius: 100px;"/></div>
-                <div class="add"></div>
+                <div class="profile-pic col-lg-1 col-md-2 col-4"><img id="preview_image" src="{{ asset('/profiles/' ~ app.user.profilePic) }}"/></div>
+                <div class="add">
+                            {{ form_widget(form.profilePic, {'attr':{'class':'custom-file-input', 'onchange':'previewFile(this)', 'value':app.user.profilePic,'required':false}}) }}  
+                </div>
 
-    <div class="profile-container col-10">
-                <h1 class="name row">{{user.name}}</h1>
-                 <h4 class="email row">{{user.email}}</h4>
+
+    <div class="profile-container col-md-5">
+                <h1 class="name row">{{app.user.name}}</h1>
+                 <h4 class="email row">{{app.user.email}}</h4>
             </div>
              </div>
 
     <div class="row" style="margin-top:60px;">
 
                 <i class="fas fa-user"></i>
-                <input class="col-5" type="text" name="name" id="name" placeholder="Fullname"/>
+                  {{ form_widget(form.name,{'attr':{'class':'col-lg-5 col-10','id':'name', 'placeholder':user.name}})}}
+                {# <input class="col-5" type="text" name="name" id="name" placeholder="Fullname"/> #}
 
                 <i class="fas fa-unlock-alt"></i>
-                <input class="col-5" type="email" name="email" id="email" placeholder="Email" style="margin-left:50px"/>
+                  {{ form_widget(form.email,{'attr':{'class':'col-lg-5 col-10','id':'email', 'placeholder':user.name, 'style':'margin-left:50px'}})}}
+                {# <input class="col-5" type="email" name="email" id="email" placeholder="Email" style="margin-left:50px"/> #}
+
+                {{form_widget(form.password, { 'attr': {'class': 'form-control', 'placeholder': 'questionId', 'style': 'margin: 10px; display:none', 'value' : user.password } }) }}
+                <input id="user_edit_password" name="user_edit[password]" value= {{user.password}} style="display:none" />
     </div>
 
     <div class="row">
-      <div class="login-btn">Update details</div>
+    {{form_widget(form.submit, {'attr':{'class':'submit-btn col-lg-1 col-md-3 col-9'}})}}
     </div>
+
+    {{form_end(form)}}
 
     <div class="row">
       <h1 class="past">Past posts</h1>
@@ -78,38 +87,62 @@ CoCreate
               
                    {% endfor %}
                    
-    {# <div class="col-4">1</div><!--
- --><div class="col-4">2</div><!--
- --><div class="col-4">3</div><!--
- --><div class="col-4">4</div><!--
- --><div class="col-4">5</div><!--
- --><div class="col-4">6</div><!--
- --><div class="col-4">7</div><!--
- --><div class="col-4">8</div><!--
- --><div class="col-4">9</div> #}
   </div>
 </div>
 
-<div class="row">
-<ul style="margin-left:8.3333%; width:80%">
-{# {% for friend in user.friends %} #}
-{# <li class="single-post"> {{friend.name}} </li>
-{% endfor %} #}
-</ul>
+
+    <div class="row">
+      <h1 class="past">All users</h1>
+    </div>
+
+<div class="container testimonial-group col-12" style="margin-top:30px; margin-bottom:30px">
+  <div class="row" style="padding-left:140px">
+
+              {% for allUsers in allUsers %} {#for loop looks in twig #}
+
+               <div class="item-card col-11 col-md-6 col-lg-3">
+                    <div class="inner2 col-12">
+                     <p class="details col-7"><strong>{{allUsers.name}}</strong><br>{{allUsers.email}}</p>
+                     <div class="ban col-4">Ban user</div>
+                    </div><!--inner-->
+              
+                </div><!--itemcard-->
+              
+                   {% endfor %}
+                   
+  </div>
 </div>
-            <div class="row" style="margin-top:30px">
-                <div class="footer col-12 row">
-                  <div class="col-4"><img class="img-responsive" src="{{ asset('assets/Group 5.png') }}" style="width:13%; margin-top:40px; margin-left:80px"></div>
-                  <div class="col-4" style="text-align:center; color:white; margin-top:60px">COPYRIGHT 2021 PROJECT</div>
-                  <div class="col-4" style="margin-top:45px">
-                    <a class="circle" style="margin-left:50%;" href="https://web.facebook.com/?_rdc=1&_rdr"><img  src="{{ asset('assets/facebook.png') }}" style=" width:100%"/></a>
+
+ <div class="row footerContainer" >
+              <div class="footer col-12 row">
+                  <div class="col-6 col-lg-4 footerLogo"><img class="img-responsive" src="{{ asset('assets/Group 5.png') }}"></div>
+                  <div class="col-6 col-lg-4 d-none d-lg-block" style="text-align:center; color:white; margin-top:60px">COPYRIGHT 2021 PROJECT</div>
+                  <div class="col-6 col-lg-4" style="margin-top:45px;">
+                    <a class="circle facebookCircle" href="https://web.facebook.com/?_rdc=1&_rdr"><img  src="{{ asset('assets/facebook.png') }}" style=" width:100%"/></a>
                     <a class="circle" href="https://www.instagram.com/"><img src="{{ asset('assets/insta.png') }}" style=" width:100%"/></a>
                     <a class="circle" href="https://twitter.com/Twitter?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><img src="{{ asset('assets/twitter.png') }}" style=" width:100%"/></a>
                     <a class="circle" style="background-color:transparent" href="https://za.pinterest.com/"><img src="{{ asset('assets/pinterest.png') }}" style=" width:100%"/></a>
-                  </div>
+       
                 </div>
                 </div>
-            </div>
+
+                
+
+
+        <script>
+
+        function previewFile(input){
+            var file = $("input[type=file]").get(0).files[0];
+            if(file){
+                var reader = new FileReader();
+                reader.onload = function(){
+                    $("#preview_image").attr("src", reader.result);
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+    </script>
 
 {% endblock %}
 

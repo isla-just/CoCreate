@@ -15,6 +15,11 @@ class HomeController extends AbstractController{
      */
     public function viewHome(){
 
+        $user = $this->getUser();
+        if($user == null){
+           return $this->redirectToRoute('app_login');
+        }
+
             //using the Entity & Doctrine to get our Database data
             $questions = $this->getDoctrine()
              ->getRepository(Question::class)

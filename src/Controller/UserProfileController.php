@@ -110,45 +110,45 @@ class UserProfileController extends AbstractController
         ]);
     }
 
-     /**
-     * @Route("/{id}/edit", name="user_profile_edit", methods={"GET","POST"})
-     */
-    public function edit(Request $request, UserProfile $userProfile): Response
-    {
-        $form = $this->createForm(UserProfileType::class, $userProfile);
-        $form->handleRequest($request);
+    //  /**
+    //  * @Route("/{id}/edit", name="user_profile_edit", methods={"GET","POST"})
+    //  */
+    // public function edit(Request $request, UserProfile $userProfile): Response
+    // {
+    //     $form = $this->createForm(UserProfileType::class, $userProfile);
+    //     $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+    //     if ($form->isSubmitted() && $form->isValid()) {
 
-            $entityManager = $this->getDoctrine()->getManager();
+    //         $entityManager = $this->getDoctrine()->getManager();
 
-            $plainpwd=$userProfile->getPassword();
-            $encoded = $this->passwordEncoder->encodePassword($userProfile, $plainpwd);
-            $userProfile->setPassword($encoded);
+    //         $plainpwd=$userProfile->getPassword();
+    //         $encoded = $this->passwordEncoder->encodePassword($userProfile, $plainpwd);
+    //         $userProfile->setPassword($encoded);
 
-            $entityManager->persist($userProfile);
-            $entityManager->flush();
+    //         $entityManager->persist($userProfile);
+    //         $entityManager->flush();
 
-            return $this->redirectToRoute('user_profile_index', [], Response::HTTP_SEE_OTHER);
-        }
+    //         return $this->redirectToRoute('user_profile_index', [], Response::HTTP_SEE_OTHER);
+    //     }
 
-        return $this->renderForm('user_profile/edit.html.twig', [
-            'user_profile' => $userProfile,
-            'form' => $form,
-        ]);
-    }
+    //     return $this->renderForm('user_profile/edit.html.twig', [
+    //         'user_profile' => $userProfile,
+    //         'form' => $form,
+    //     ]);
+    // }
 
-    /**
-     * @Route("/{id}", name="user_profile_delete", methods={"POST"})
-     */
-    public function delete(Request $request, UserProfile $userProfile): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$userProfile->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($userProfile);
-            $entityManager->flush();
-        }
+    // /**
+    //  * @Route("/{id}", name="user_profile_delete", methods={"POST"})
+    //  */
+    // public function delete(Request $request, UserProfile $userProfile): Response
+    // {
+    //     if ($this->isCsrfTokenValid('delete'.$userProfile->getId(), $request->request->get('_token'))) {
+    //         $entityManager = $this->getDoctrine()->getManager();
+    //         $entityManager->remove($userProfile);
+    //         $entityManager->flush();
+    //     }
 
-        return $this->redirectToRoute('user_profile_index', [], Response::HTTP_SEE_OTHER);
-    }
+    //     return $this->redirectToRoute('user_profile_index', [], Response::HTTP_SEE_OTHER);
+    // }
 }

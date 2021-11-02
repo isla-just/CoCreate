@@ -16,15 +16,15 @@ CoCreate
 
             <div class="half1 col-lg-6 col-12">
 
-                 <div class="card d-lg-none"></div>
-
                  <div class="brand col-lg-1 col-2"><img class="img-responsive" src="{{ asset('assets/logo2.png') }}" style="width:100%; float:right"></div>
-                  
-                <h1 class="signup">SIGN UP</h1>
 
+                 <div class="card col-10 d-lg-none"></div>
+        {{ form_start(form) }}
 
-            {{ form_start(form) }}
-                <div class="row" style="margin-left:5%">
+                <h1 class="col-12" style="text-align:center;">SIGN UP</h1>
+
+                <div class="row">
+                
                     <div class="container col-3" style="margin:auto">
                         <div class="profile-pic">
                          <img id="preview_image">
@@ -40,28 +40,22 @@ CoCreate
                 <div class="user row">
                 <i class="fas fa-user"></i>
                 {{ form_widget(form.name, {'attr':{'class':'col-9','style':'margin-left:12%', 'placeholder':'Fullname'}}) }}
-                {# <input class="col-9" style="margin-left:12%" type="text" name="name" id="name" placeholder="Fullname"/> #}
 
                 <i class="fas fa-unlock-alt"></i>
                 {{ form_widget(form.email, {'attr':{'class':'col-9','style':'margin-left:12%', 'placeholder':'Email', 'type':'email'}}) }}
-                {# <input class="col-9" style="margin-left:12%" type="email" name="email" id="email" placeholder="Email"/> #}
 
                 <i class="fas fa-unlock-alt"></i>
                 {{ form_widget(form.password, {'attr':{'class':'col-9','style':'margin-left:12%', 'placeholder':'Password', 'type':'password'}}) }}
-                {# <input class="col-4" style="margin-left:12%" type="password" name="password" id="password" placeholder="Password" style="float:left"/> #}
-
-                {# <i class="fas fa-unlock-alt"></i>
-                <input class="col-4" style="margin-left:8%" type="password" name="confirm" id="confirm" placeholder="Confirm Password" style="float:left;"/> #}
-                
+              
                 </div><!--user-->
 
               <div class="row" style="margin-top:40px">
                 {# {{ form_widget(form.submit, {'attr':{'class':'login-btn col-lg-2 col-md-5 col-9','type':'submit'}}) }} #}
                 <button class="login-btn col-lg-2 col-md-5 col-9">{{ button_label|default('Sign Up') }}</button>
                 </div>
-        {{ form_end(form) }}
 
-                <p class="signupP">Already have an account?<strong><a href="/login/"> Sign in now! </a></strong></p>
+                   <div class="account">Already have an account?<strong><a href="/login/"> Sign in now! </a></strong></div>
+        {{ form_end(form) }}
 
             </div><!--half1-->
 
@@ -71,60 +65,13 @@ CoCreate
         </div><!--row-->
 
     
-{# 
-    <div class="small-container row d-lg-none">
 
-  <div class="row col-12">
-
-        <div class="half2 col-12">
-        <div class="brand col-2"><img class="img-responsive" src="{{ asset('assets/logo2.png') }}" style="width:100%"></div>
-
-            <div class="card col-10" >
-                <h1 class="col-12" style="text-align:center;">SIGN UP</h1>
-
-                <div class="row" style="margin-left:5%">
-                    <div class="container col-3" style="margin:auto">
-                        <div class="profile-pic"></div>
-                        <div class="add"></div>
-                    </div>
-                </div>
-                <div class="user col-12">
-                <i class="fas fa-user"></i>
-                <input class="col-12" type="text" name="email" placeholder="Email"/>
-
-                <i class="fas fa-unlock-alt"></i>
-                <input class="col-12" type="text" name="fullname" placeholder="Fullname"/>
-
-                <i class="fas fa-unlock-alt"></i>
-                <input class="col-12" type="password" name="password" placeholder="Password"/>
-
-                <i class="fas fa-unlock-alt"></i>
-                <input class="col-12" type="password" name="confirm" placeholder="Confirm"/>
-                </div><!--user-->
-
-                 <div class="row" style="margin-top:10px">
-                <div class="login-btn col-12 col-md-5">Sign in</div>
-                </div>
-
-                <div class="row">
-                <p class="signup col-12" style="margin-bottom:20px">Already have an account? <strong>Sign in now! </strong></p>
-                </div>
-
-            </div><!--card-->
-            
-        </div>
-
-    </div><!--row-->
-
-    </div> #}
-
-         {% if error %}
+     {% if error %}
      <div class="large-container-overlay">
-        <div class="error-card col-2">
+        <div class="error-card col-10 col-xs-10 col-md-6 col-lg-6 col-xl-2">
         <div class="close"></div>
             <h1>Oops!</h1>
-            <h4>This email is already taken</h4>
-            <a href="/login"><div class="login_rather">Login rather</div></a>
+            <h4>This email has already been taken</h4>
         </div>
      </div>
 

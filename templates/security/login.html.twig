@@ -59,19 +59,14 @@ CoCreate
                 <p class="signup">First time here? <strong><a href="/users/new/">Sign up now! </a></strong></p>
         </form>
             </div><!--half2-->
+
+                        {% if app.user %}
+                    <div class="mb-3 row" style="padding-left:20px">
+                        You are logged in as {{ app.user.username }},  <a href="{{ path('app_logout') }}"> Logout</a>
+                    </div>
+                {% endif %}
         </div><!--row-->
     </div><!--large container-->
-
-     {% if error %}
-     <div class="large-container-overlay">
-        <div class="error-card col-2">
-        <div class="close"></div>
-            <h1>Oops!</h1>
-            <h4>Your username or password is incorrect</h4>
-        </div>
-     </div>
-
-    {% endif %}
                     {# <div class="alert alert-danger row">{{ error.messageKey|trans(error.messageData, 'security') }}</div> #}
     <script>
 
@@ -93,20 +88,9 @@ CoCreate
         <div class="half1 col-12">
         <div class="brand col-2"><img class="img-responsive" src="{{ asset('assets/Group 5.png') }}" style="width:100%"></div>
 
-            <div class="card col-10">
+            <div class="card col-10" style="margin-left:8.3333%">
 
              <form method="post">
-
-                {% if error %}
-                <div class="alert alert-danger row">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                {% endif %}
-
-
-                {% if app.user %}
-                    <div class="mb-3 row">
-                        You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-                    </div>
-                {% endif %}
 
                 <h1 class="col-12" style="text-align:center;">LOG IN</h1>
 
@@ -127,22 +111,39 @@ CoCreate
                     >
 
                     <div class="checkbox mb-3 col-12"style="margin-left:0%;">
-                    <label>
-                        <input type="checkbox"  name="_remember_me"> Remember me
-                    </label>
+  
                     </div>
-                <div class="row" style="margin-top:40px">
+                <div class="row" style="margin-top:60px">
                     <button class="login-btn col-12 col-md-5" type="submit">Log in</button>
                 </div>
 
                 <div class="row">
-                <p class="signup col-12" style="margin-bottom:20px">First time here? <strong>Sign up now! </strong></p>
+                <p class="signup col-12" style="margin-bottom:20px">First time here? <a href="/users/new"><strong>Sign up now! </strong></a></p>
                 </div>
             </div><!--card-->
+
         </div>
+
+                        {% if app.user %}
+                    <div class="mb-3 row">
+                        You are logged in as {{ app.user.username }},  <a href="{{ path('app_logout') }}"> Logout</a>
+                    </div>
+                {% endif %}
 
     </div><!--row-->
 
     </div>
+
+
+     {% if error %}
+     <div class="large-container-overlay">
+        <div class="error-card col-10 col-xs-10 col-md-6 col-lg-4 col-xl-2">
+        <div class="close"></div>
+            <h1>Oops!</h1>
+            <h4>Your username or password is incorrect</h4>
+        </div>
+     </div>
+
+    {% endif %}
 
 {% endblock %}
