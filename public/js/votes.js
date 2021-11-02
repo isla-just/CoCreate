@@ -17,11 +17,13 @@ $(document).ready(function(){
             var questionId = $(".picture-input").data("id");
             // console.log(questionId);
 
+            var userId=$(this).data("user");
+
             //perform AJAX
             $.ajax({
                 url: "/question/"+questionId,
                 type: "POST",
-                data: { id: answerId, type:"up" },
+                data: { id: answerId, type:"up", userId:userId },
                 dataType: "text",
                 async: true,
                 
@@ -55,12 +57,14 @@ $(document).ready(function(){
                 //getting the id of the qurestion
                 var questionId2 = $(".picture-input").data("id");
                 // console.log(questionId);
+
+                var userId=$(this).data("user");
     
                 //perform AJAX
                 $.ajax({
                     url: "/question/"+questionId2,
                     type: "POST",
-                    data: { id: answerId2, type:"down" },
+                    data: { id: answerId2, type:"down",userId:userId },
                     dataType: "text",
                     async: true,
         

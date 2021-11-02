@@ -18,11 +18,11 @@ CoCreate
                         <!--nav content-->
                     <ul class="navbar-nav" >
                         <li class="nav-item">
-                            <a class="nav-link active" href="/">Explore</a>
+                            <a class="nav-link" href="/">Explore</a>
                         </li>
 
                         <li class="nav-item link2">
-                            <a class="nav-link" style="margin-left:20px" href="/profile/{{app.user.id}}">My Profile</a>
+                            <a class="nav-link active" style="margin-left:20px" href="/profile/{{app.user.id}}">My Profile</a>
                         </li>
                     </ul><!--navbar-nav-->
                     
@@ -90,20 +90,30 @@ CoCreate
   </div>
 </div>
 
-
+{% if app.user.access == 3 %}
+                
     <div class="row">
       <h1 class="past">All users</h1>
     </div>
 
 <div class="container testimonial-group col-12" style="margin-top:30px; margin-bottom:30px">
-  <div class="row" style="padding-left:140px">
+  <div class="row banned-container" >
 
               {% for allUsers in allUsers %} {#for loop looks in twig #}
 
                <div class="item-card col-11 col-md-6 col-lg-3">
                     <div class="inner2 col-12">
                      <p class="details col-7"><strong>{{allUsers.name}}</strong><br>{{allUsers.email}}</p>
-                     <div class="ban col-4">Ban user</div>
+
+                     {% if allUsers.access == 0 %}
+                     <a href="/ban/{{allUsers.id}}"><div class="ban col-4">Ban user</div></a>
+                     {% endif %}
+
+                      {% if allUsers.access == 1 %}
+                     <a href="/unban/{{allUsers.id}}"><div class="unban col-4">Unban user</div></a>
+                     {% endif %}
+
+                     
                     </div><!--inner-->
               
                 </div><!--itemcard-->
@@ -112,6 +122,8 @@ CoCreate
                    
   </div>
 </div>
+
+{% endif %}
 
  <div class="row footerContainer" >
               <div class="footer col-12 row">

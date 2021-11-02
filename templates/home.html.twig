@@ -71,17 +71,17 @@ CoCreate
         $(".login-btn").on("click", function(){
                         if ($(".active-toggle").text() == "Illustration") {
                     $(".item-card").hide();
-            $('.item-card[value="' + "Illustration" + '"]').slice(0, 24).show();
+            $('.item-card[value="' + "Illustration" + '"]').show();
             $(".login-btn").hide();
 
             }else if($(".active-toggle").text() == "UX design") {
                     $(".item-card").hide();
-            $('.item-card[value="' + "UX design" + '"]').slice(0, 24).show();
+            $('.item-card[value="' + "UX design" + '"]').show();
                  $(".login-btn").hide();
 
             }else{
                     $(".item-card").hide();
-            $('.item-card[value="' + "Graphic design" + '"]').slice(0, 24).show();
+            $('.item-card[value="' + "Graphic design" + '"]').show();
                  $(".login-btn").hide();
             }
         });//load more 
@@ -115,7 +115,7 @@ CoCreate
                     {% endif %}
 
             <div class="row" style="margin-top:150px;">
-                <h1 class="main-header">Explore illustration creations...</h1>
+                <h1 class="main-header">Explore the CoCreate community's creations...</h1>
             </div>
             
             <div class="row" style="margin-top:40px">
@@ -160,5 +160,28 @@ CoCreate
                 </div>
             </div>
 
-            
+{# <script>
+
+      $(document).ready(function() {
+    
+    console.log("ready");
+
+        $(".close").on("click", function(){
+            $(".large-container-overlay").fadeOut();
+        });
+     });
+
+    </script> #}
+
+    {# {% if success %}
+     <div class="large-container-overlay">
+        <div class="error-card col-10 col-xs-10 col-md-6 col-lg-4 col-xl-2">
+        <div class="close"></div>
+            <h1>Oops!</h1>
+            <h4>Your username or password is incorrect</h4>
+        </div>
+     </div>
+
+    {% endif %} #}
+
 {% endblock %}

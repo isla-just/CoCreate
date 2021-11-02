@@ -56,6 +56,15 @@ class QuestionController extends AbstractController{
         
                         $entityManager->flush();
 
+                        $repCount = 0;
+
+                        $userId = $_POST["userId"];
+                        $entityManager2 = $this->getDoctrine()->getManager();
+                        $rep = $entityManager2->getRepository(UserProfile::class)->find($userId);
+                        $repCount = $rep->getReputation();
+                        $rep->setReputation($repCount + 1);
+                        $entityManager2->flush();
+
                         //create defalt variable for rep count
 
                         $user = new UserProfile();
@@ -86,6 +95,16 @@ class QuestionController extends AbstractController{
                       $answer->setDownvotes($downvotes + 1);
       
                       $entityManager->flush();
+
+                        //decreasing the reputation
+                      $repCount = 0;
+
+                      $userId = $_POST["userId"];
+                      $entityManager2 = $this->getDoctrine()->getManager();
+                      $rep = $entityManager2->getRepository(UserProfile::class)->find($userId);
+                      $repCount = $rep->getReputation();
+                      $rep->setReputation($repCount - 1);
+                      $entityManager2->flush();
                       }
 
 
@@ -103,7 +122,7 @@ class QuestionController extends AbstractController{
             $entityManager->persist($answerdata);
             $entityManager->flush();
 
-            return $this->redirectToRoute("index");
+                  // return $this->redirect("question/" . $id);
         }
 
           //using the entity and doctrine to get your database data
@@ -117,9 +136,9 @@ class QuestionController extends AbstractController{
             'form' => $form,
             // 'id'=>$question_id
         ]);
+        //works
+        return $this->redirect("question/" . $question_id);
 
-
-   return $this->render($view, $model);
     }
 
     //route pinning a post
@@ -145,8 +164,8 @@ class QuestionController extends AbstractController{
             $answer->setPinned(1);
             $entityManager->persist($answer);
             $entityManager->flush();
-
-            return $this->redirectToRoute('question', [], Response::HTTP_SEE_OTHER);
+            
+            return $this->redirect("question/" . $id);
         }
 
 
@@ -167,13 +186,15 @@ class QuestionController extends AbstractController{
               ->getRepository(Question::class)
               ->find($question_id );
 
+              $success=true;
+
               $entityManager = $this->getDoctrine()->getManager();
               $entityManager->remove($question);
               $entityManager->flush();
 
-        return $this->redirectToRoute('index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('index', ["success" =>$success], Response::HTTP_SEE_OTHER);
     }
-
+ 
      /**
      * *@Route("/question/{id}/deleteResponse", name="delete_response")
      */

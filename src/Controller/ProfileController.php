@@ -73,7 +73,8 @@ class ProfileController extends AbstractController{
                 $entityManager->persist($userProfile);                                     
             $entityManager->flush();
 
-            return $this->redirectToRoute("index");
+            
+            return $this->redirect($user_id);
         }
 
         //using the entity and doctrine to get your database data
@@ -94,6 +95,48 @@ class ProfileController extends AbstractController{
 
             ]);
     
+    }
+
+     /**
+     * *@Route("/ban/{id}", name="ban", methods={"GET", "POST"})
+     */
+    public function banAdmin(Request $request, UserProfile $userProfile, $id = null) {
+
+        $admin_id = (int) $id;
+
+        $Admin=$this->getDoctrine()
+        ->getRepository(UserProfile::class)
+        ->findBy(['access' => "0"]);
+
+            $entityManager = $this->getDoctrine()->getManager();
+
+            $access = $userProfile->getAccess();
+            $userProfile->setAccess(1);
+            $entityManager->persist($userProfile);
+            $entityManager->flush();
+
+            return $this->redirectToRoute("index");
+    }
+
+     /**
+     * *@Route("/unban/{id}", name="unban", methods={"GET", "POST"})
+     */
+    public function unbanAdmin(Request $request, UserProfile $userProfile, $id = null) {
+
+        $admin_id = (int) $id;
+
+        $Admin=$this->getDoctrine()
+        ->getRepository(UserProfile::class)
+        ->findBy(['access' => "1"]);
+
+            $entityManager = $this->getDoctrine()->getManager();
+
+            $access = $userProfile->getAccess();
+            $userProfile->setAccess(0);
+            $entityManager->persist($userProfile);
+            $entityManager->flush();
+
+            return $this->redirectToRoute("index");
     }
 }
 ?>

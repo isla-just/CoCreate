@@ -75,8 +75,8 @@ CoCreate
 
                     {% if app.user.access != 3 %}
                     <div class="votes-container">
-                    <div class="up" data-id="{{ answers.id }}"><p>{{answers.upvotes}}</p><img src="{{asset('assets/up.png')}}" class="upvote"/></div>
-                     <div class="down" data-id="{{ answers.id }}"><p> {{answers.downvotes}}</p> <img src="{{asset('assets/down.png')}}" class="downvote"/></div>
+                    <div class="up" data-id="{{ answers.id }}" data-user="{{ answers.user.id }}"><p>{{answers.upvotes}}</p><img src="{{asset('assets/up.png')}}" class="upvote"/></div>
+                     <div class="down" data-id="{{ answers.id }}" data-user="{{ answers.user.id }}"><p> {{answers.downvotes}}</p> <img src="{{asset('assets/down.png')}}" class="downvote"/></div>
                     </div>
 
                     {% endif %}

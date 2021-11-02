@@ -65,16 +65,15 @@ class AskController extends AbstractController{
 
             //upload to database
             // $question->setUserId(UserProfile::class,$id);
-            // $question->setUserId(UserProfile::$send_id);
 
             //manages the creation of the new user using the Entity in our DB
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($question);
             $entityManager->flush();
 
-            //TODO: - Set the Session()
+            $id=$question->getId();
 
-            return $this->redirectToRoute("index");
+            return $this->redirect("question/" . $id);
 
 
         }
