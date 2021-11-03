@@ -12,7 +12,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/isla-just/CoCreate_ProjectRestart">
-    <img src="https://github.com/isla-just/CoCreate_ProjectRestart/blob/main/readMeimg/logo2.png" alt="Logo" width="" height="80">
+    <img src="https://github.com/isla-just/CoCreate_ProjectRestart/blob/master/readMeimg/logo2.png" alt="Logo" width="" height="80">
   </a>
 
   <p align="center">
