@@ -138,7 +138,7 @@ See the [open issues](https://github.com/isla-just/CoCreate_ProjectRestart/issue
 For this project I started off with coming up with my brand. I desgned a logo and put together a colour palette. I also started looking at some inspiration images and thinking about the flow of my website. 
 
 
-  <img src="https://github.com/isla-just/CoCreate_ProjectRestart/blob/main/readMeimg/concept.png" alt="concept" width="800" height="" align="center">
+  <img src="https://github.com/isla-just/CoCreate_ProjectRestart/blob/main/CoCreate_final/readMeimg/concept.png" alt="concept" width="800" height="" align="center">
 <br></br>
 
 ### Wireframes
