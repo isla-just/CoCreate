@@ -74,7 +74,7 @@
 
 # About The Project
 
-  <img src="https://github.com/isla-just/CoCreate_ProjectRestart/blob/main/readMeimg/IslaJust_200080_DV204_mockup1.png" alt="mockup" width="800" height="" align="center">
+  <img src="https://github.com/isla-just/CoCreate_ProjectRestart/blob/master/readMeimg/IslaJust_200080_DV204_mockup1.png" alt="mockup" width="800" height="" align="center">
 
 <br></br>
 
@@ -134,37 +134,51 @@ See the [open issues](https://github.com/isla-just/CoCreate_ProjectRestart/issue
 <br></br>
 
 # Concept process
+
+### Entity Relationship diagram
+Next, I mapped out how my data would be structured. This ARD highlights the 3 tables I wanted to have along with their different relationships and keys
+
+  <img src="https://github.com/isla-just/CoCreate_ProjectRestart/blob/master/readMeimg/ERD.png" alt="concept" width="800" height="" align="center">
+
 ### Ideation
 For this project I started off with coming up with my brand. I desgned a logo and put together a colour palette. I also started looking at some inspiration images and thinking about the flow of my website. 
 
 
-  <img src="https://github.com/isla-just/CoCreate_ProjectRestart/blob/main/CoCreate_final/readMeimg/concept.png" alt="concept" width="800" height="" align="center">
+  <img src="https://github.com/isla-just/CoCreate_ProjectRestart/blob/master/readMeimg/concept.png" alt="concept" width="800" height="" align="center">
 <br></br>
 
 ### Wireframes
 
 It was then time to start designing and planning the layout of my website. Here are some sketched wireframes that I drew:
-  <img src="https://github.com/isla-just/CoCreate_ProjectRestart/blob/main/readMeimg/wireframe.jpg" alt="wireframe" width="800" height="" align="center">
+  <img src="https://github.com/isla-just/CoCreate_ProjectRestart/blob/master/readMeimg/wireframe.png" alt="wireframe" width="800" height="" align="center">
 
 <br></br>
 
 ### User-flow diagram
-Next, I did a simple userflow diagram that maps out the basic flow of information as the user interacts with the website. This is the one I did for the teacher profile (the flows are very similar except students cant edit classes)
-  <img src="https://github.com/isla-just/CoCreate_ProjectRestart/blob/main/readMeimg/userFlow.jpg" alt="user flow" width="800" height="" align="center">
+Next, I did a simple userflow diagram that maps out the basic flow of information as the user interacts with the website. This is the one I did for a regular user (the flows are very similar except admin can edit questions and answers and manage users)
+  <img src="https://github.com/isla-just/CoCreate_ProjectRestart/blob/master/readMeimg/wireflow.png" alt="wireframe" width="800" height="" align="center">
 <br></br>
 
 # Development process and implementation
 Roadmap of my progress and struggles over the last 9 weeks
-1. I started implementing my design in my React frontend first and made sure I was happy with the frontend design.
-2. then I started working on my backend making sure that all of the api information displayed on the backend. I also started coding some more complex api endpoints to return more specific data and also linking data between the diferent datasets in mt data file that I was given
-3. Then it was time to work on linking the frontend and the backend and actually displaying the api content. This was relatively easy however I really struggles with React rendering dom elements from the api before the api call was done so I had to do some workaround code to fix that error
-4. Next it was time to actually implement the key website functionality from the backend onto the frontend. The login form was surprisingly the more challenging part of this. Implementing the crud functionality was fairly simple
-5. Next I just did some frontend refinements and made sure that everything was working nicely. Here I added some jquery and some nice popups for when the teacher edits the information. 
+1. We started off the term by learning about the MVC and from there we could implement our Symfony projects locally. We also learned about routing and twig templates so we could start implementing our frontend
+2. Next, we started to add functionality to our projects. We started off with our login and register crud functionality. We also had our databases completely set up at this point.
+3. Next, we learned how to use ajax and how to do PHP unit testings in our class project. We also had progress marks weekly, providing us with the opportunity to get feedback and iterate.
+4. Lastly, we looked at actually deploying our projects on Heroku. We also looked at converting our MySQL to PostgreSQL. I did loads of refinements and troubleshooting at this stage
+
+## Additions
+1. Exploration - On the explore page, I have included a filter that allows you to browse through the different communities and I have also included a load more button so that the user isn't bombarded with images
+2. User friendly - I tried to account for the user experience in every aspect of this project by trying to create a seamless flow of events. I tried to make the website easy to navigate and added popups as feedback
+3. Security - In terms of security, I set the session and checked it on every page to ensure that the user had logged in and everything is secure. I also hashed all of the passwords in my database for an added layer of security. I also included logout functionality
+4. Responses - Instead of marking an answer as correct, I implemented a pin functionality that can only be done by the creator of the post. I have also sorted the responses so that the pinned one is at the top. Users can also upvote and downvote comments.
+
+  <img src="https://github.com/isla-just/CoCreate_ProjectRestart/blob/master/readMeimg/mockup2.png" alt="mockup2" width="800" height="" align="center">
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-This project could be built upon by adding loads of different features. Perhaps a sign up form would be useful and I also would have liked to implement the search for a user functionality. This project could also be used as a resource for building a React website with an express backend. React worked super well in terms of displaying and updating the content dynamically because it is an SPA
+This project could be built upon by adding loads of different features. In the future, I would like to add more screen dimensions to make my website fully compatible with most devices and I would like to add more popups and feedback throughout the user experience. Another great feature to add would be some kind of notification functionality where the user is notified if their question has been answered.
+
   <br></br>
 _For more examples, please refer to the [Documentation](https://example.com)_
 
@@ -197,6 +211,12 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Isla Just - isla@just.co.za
 
+Instagram - https://www.instagram.com/byislajust/
+
+Linkedin - https://www.linkedin.com/in/isla-just-b038a2202/
+
+<br></br>
+
 Project Link: [https://github.com/isla-just/CoCreate_ProjectRestart](https://github.com/isla-just/CoCreate_ProjectRestart)
 
 
@@ -204,18 +224,16 @@ Project Link: [https://github.com/isla-just/CoCreate_ProjectRestart](https://git
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements and references
 
-* [https://smartmockups.com/mockups/laptop]()
-* [https://smartmockups.com/mockups/desktop]()
-* [https://www.freepik.com/free-vector/smiling-people-avatar-set-different-men-women-characters-collection_13663484.htm#position=4]()
-* [https://www.freepik.com/free-vector/flat-linearonline-
-learning-landingpage_
-13720079.htm#position=0]()
-* [https://github.com/ArmandPret/rona]()
-* [https://stackoverflow.com/questions/42914666/react-router-external-link]()
-* [https://stackoverflow.com/questions/51003189/reactjs-how-to-style-react-calendar]()
-* [https://www.npmjs.com/package/simple-react-calendar]()
-* lecturers Christof Enslin and Armand Pretorius
+mockups:
+* https://originalmockups.com/mockups/free-mockups
+* https://freedesignresources.net/category/free-mockups/?_paged=6
+* https://www.anthonyboyd.graphics/mockups/28/
 
+Illustrations:
+* https://bulmaillustrates.com/
+
+* Peers: Pieter Venter https://github.com/Pieter-stack and Hansin Prema
+* lecturer: Armand Pretorius https://github.com/ArmandPret
 
 
 
