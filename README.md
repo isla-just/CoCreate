@@ -1,7 +1,7 @@
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
-[![https://github.com/isla-just/Scribble/issues][issues-shield]][issues-url]
+[![https://github.com/isla-just/CoCreate_ProjectRestart/issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![https://www.linkedin.com/in/isla-just-b038a2202/][linkedin-shield]][linkedin-url]
 <!--fix these links-->
@@ -11,22 +11,22 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/isla-just/Scribble">
-    <img src="https://github.com/isla-just/Scribble/blob/main/readMeimg/logo.png" alt="Logo" width="" height="80">
+  <a href="https://github.com/isla-just/CoCreate_ProjectRestart">
+    <img src="https://github.com/isla-just/CoCreate_ProjectRestart/blob/main/readMeimg/logo2.png" alt="Logo" width="" height="80">
   </a>
 
   <p align="center">
-  A creative learning portal allowing students and teachers to access their online class details
+  A community allowing creatives to ask questions and get constructive feedback on their design work
     <br />
-    <a href="https://github.com/isla-just/Scribble"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/isla-just/CoCreate_ProjectRestart"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/isla-just/Scribble">View Demo</a>
+    <a href="https://github.com/isla-just/CoCreate_ProjectRestart">View Demo</a>
     <!--insert demo video-->
     ·
-    <a href="https://github.com/isla-just/Scribble/issues">Report Bug</a>
+    <a href="https://github.com/isla-just/CoCreate_ProjectRestart/issues">Report Bug</a>
     ·
-    <a href="https://github.com/isla-just/Scribble/issues">Request Feature</a>
+    <a href="https://github.com/isla-just/CoCreate_ProjectRestart/issues">Request Feature</a>
   </p>
 </p>
 
@@ -49,7 +49,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#functions">Features and functions</a></li>
+    <li><a href="#functions">ERD</a></li>
     <li><a href="#concept">Concept process</a>
           <ul>
         <li><a href="#ideation">Ideation</a></li>
@@ -58,7 +58,8 @@
       </ul>
     </li>
      <li><a href="#dev">Development process - implementation</a></li>
-      <li><a href="#demo">Demo video</a></li>
+     <li><a href="#dev">Promo Video</a></li>
+          <li><a href="#dev">Project Conclusion</a></li>
     <li><a href="#Contributions">Contributions</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -73,64 +74,62 @@
 
 # About The Project
 
-  <img src="https://github.com/isla-just/Scribble/blob/main/readMeimg/mockup1.jpg" alt="mockup" width="800" height="" align="center">
+  <img src="https://github.com/isla-just/CoCreate_ProjectRestart/blob/main/readMeimg/IslaJust_200080_DV204_mockup1.png" alt="mockup" width="800" height="" align="center">
 
 <br></br>
 
-## Built With
+## Technologies
 
-* [https://expressjs.com/](express.js)
-* [https://reactjs.org/](react.js)
-* [https://www.javascript.com/](javascript)
+* [https://symfony.com/5](Symfony.js)
+* [https://www.postgresql.org/](postgreSQL)
+* [https://www.heroku.com/platform](Heroku)
+* [https://git-scm.com/](Git)
+* [https://getbootstrap.com/](Bootstrap)
+
 
 <br></br>
 <!-- GETTING STARTED -->
 # Getting Started
 
-To run a local copy of Scribble follow these simple steps:
+To run a local copy of CoCreate follow these simple steps:
 
 ## Prerequisites
 
-* install Node.js [https://nodejs.org/en/](node.js) and follow the installation instructions
+* install Composer [https://getcomposer.org/download/](composer) and follow the installation instructions
 
-* homebrew
+* install php or check you are running on the latest version of php
   ```sh
-  brew install node
-  brew install npm 
+  php -v
   ```
 
-* npm
+* composer require
   ```sh
-  npm install
-  npm init --yes
+  composer require
   ```
 
 ### Installation
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/isla-just/Scribble.git
+   git clone https://github.com/isla-just/CoCreate_ProjectRestart.git
    ```
-2. Install NPM packages - client.js
-   ```sh
-   npm install
-   npm install react-calendar
-   npm install react-router-dom
-   ```
-
-3. Install NPM packages - server.js
-   ```sh
-    npm install
-    npm install express --save
-    npm install cors
-   ```
+2. composer require
+  ```sh
+  composer require annotations
+  composer require debug
+  composer require twig
+  composer require symfony/orm-pack
+  composer require --dev symfony/maker-bundle
+  ```
 
 <br></br>
 
 # Features and functions 
-This is a student portal website that allows both teachers and students to view their class details for all online classes. The user can login to their account wherein the login information is pulled directly from the api and then they are taken to their corresponding home page. The user can view all of ther classes, a styled calendar showing them where they are and their personal details. The user can click on a class to access more details including the teacher message and the list of students. Teachers can even edit the class and send their students a message for the class. 
+Simply, this website allows users to login or signup, ask questions, view questions and respond to questions giving their feedback. This has all been done using CRUD functionality and ajax calls to dynamically update the frontend. The user can also view all of their past posts and view and edit their account settings. 
 
-See the [open issues](https://github.com/isla-just/Scribble/issues) for a list of proposed features (and known issues).
+The admin user has different permissions. The admin user can delete posts, delete comments and can ban and unban users. This was done through simple CRUD functionality and tweaks on the frontend to create a seamless user experience
+
+See the [open issues](https://github.com/isla-just/CoCreate_ProjectRestart/issues) for a list of proposed features (and known issues).
 
 <br></br>
 
@@ -139,19 +138,19 @@ See the [open issues](https://github.com/isla-just/Scribble/issues) for a list o
 For this project I started off with coming up with my brand. I desgned a logo and put together a colour palette. I also started looking at some inspiration images and thinking about the flow of my website. 
 
 
-  <img src="https://github.com/isla-just/Scribble/blob/main/readMeimg/concept1.jpg" alt="concept" width="800" height="" align="center">
+  <img src="https://github.com/isla-just/CoCreate_ProjectRestart/blob/main/readMeimg/concept.png" alt="concept" width="800" height="" align="center">
 <br></br>
 
 ### Wireframes
 
 It was then time to start designing and planning the layout of my website. Here are some sketched wireframes that I drew:
-  <img src="https://github.com/isla-just/Scribble/blob/main/readMeimg/wireframe.jpg" alt="wireframe" width="800" height="" align="center">
+  <img src="https://github.com/isla-just/CoCreate_ProjectRestart/blob/main/readMeimg/wireframe.jpg" alt="wireframe" width="800" height="" align="center">
 
 <br></br>
 
 ### User-flow diagram
 Next, I did a simple userflow diagram that maps out the basic flow of information as the user interacts with the website. This is the one I did for the teacher profile (the flows are very similar except students cant edit classes)
-  <img src="https://github.com/isla-just/Scribble/blob/main/readMeimg/userFlow.jpg" alt="user flow" width="800" height="" align="center">
+  <img src="https://github.com/isla-just/CoCreate_ProjectRestart/blob/main/readMeimg/userFlow.jpg" alt="user flow" width="800" height="" align="center">
 <br></br>
 
 # Development process and implementation
@@ -198,7 +197,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Isla Just - isla@just.co.za
 
-Project Link: [https://github.com/isla-just/Scribble](https://github.com/isla-just/Scribble)
+Project Link: [https://github.com/isla-just/CoCreate_ProjectRestart](https://github.com/isla-just/CoCreate_ProjectRestart)
 
 
 
